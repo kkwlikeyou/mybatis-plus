@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/mp-generator/mp-generator.iml" filepath="$PROJECT_DIR$/mp-generator/mp-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/mp-springboot/mp-springboot.iml" filepath="$PROJECT_DIR$/mp-springboot/mp-springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-hello/mybatis-hello.iml" filepath="$PROJECT_DIR$/mybatis-hello/mybatis-hello.iml" />
     </modules>

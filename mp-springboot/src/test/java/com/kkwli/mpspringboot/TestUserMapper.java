@@ -2,6 +2,8 @@ package com.kkwli.mpspringboot;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kkwli.mpspringboot.mapper.UserMapper;
 import com.kkwli.mpspringboot.pojo.User;
 import org.junit.jupiter.api.Test;
@@ -10,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @SpringBootTest
@@ -99,4 +102,62 @@ class TestUserMapper {
         System.out.println(result);
     }
 
+    @Test
+    void testSelectBatchByIds() {
+        List<User> userList = this.userMapper.selectBatchIds(Arrays.asList(1L, 2L, 3L));
+        for (User user : userList) {
+            System.out.println(user);
+        }
+
+    }
+
+    @Test
+    void testSelectOne() {
+        User user = new User();
+        user.setId(1L);
+        user.setPassword("123456");
+        QueryWrapper<User> wrapper = new QueryWrapper<>(user);
+        user = this.userMapper.selectOne(wrapper);
+        System.out.println(user);
+    }
+
+    @Test
+    void testSelectCount() {
+
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.gt("age", 20);
+        Long count = this.userMapper.selectCount(wrapper);
+        System.out.println(count);
+    }
+
+    @Test
+    void testSelectList() {
+
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.gt("age", 20);
+        List<User> userList = this.userMapper.selectList(wrapper);
+        for (User user : userList) {
+            System.out.println(user);
+        }
+    }
+
+    /**
+     * 有问题
+     */
+    @Test
+    void testSelectPage() {
+        QueryWrapper<User> wrapper = new QueryWrapper<User>();
+        wrapper.gt("age", 20); //年龄大于20岁
+        Page<User> page = new Page<>(1, 1);
+        //根据条件查询数据
+        IPage<User> iPage = this.userMapper.selectPage(page, wrapper);
+        System.out.println("数据总条数：" + iPage.getTotal());
+        System.out.println("总页数：" + iPage.getPages());
+        List<User> users = iPage.getRecords();
+        for (User user : users) {
+            System.out.println("user = " + user);
+        }
+
+
+    }
 }

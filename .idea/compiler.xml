@@ -7,11 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mp-generator" />
         <module name="mybatis-hello" />
         <module name="mp-springboot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="mp-generator" target="11" />
       <module name="mp-springboot" target="11" />
       <module name="mybatis-hello" target="11" />
       <module name="mybatis-plus-spring" target="11" />
@@ -19,6 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mp-generator" options="-parameters" />
       <module name="mp-springboot" options="-parameters" />
       <module name="mybatis-hello" options="-parameters" />
       <module name="mybatis-plus-spring" options="-parameters" />

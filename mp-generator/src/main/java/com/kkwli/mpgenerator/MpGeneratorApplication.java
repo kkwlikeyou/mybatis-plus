@@ -1,14 +1,13 @@
-package com.kkwli.mpspringboot;
+package com.kkwli.mpgenerator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class MpSpringbootApplication {
+public class MpGeneratorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MpSpringbootApplication.class, args);
+        SpringApplication.run(MpGeneratorApplication.class, args);
     }
 
 }

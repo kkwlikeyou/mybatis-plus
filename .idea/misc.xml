@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/mybatis-hello/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis-plus-spring/pom.xml" />
         <option value="$PROJECT_DIR$/mp-springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/mp-generator/pom.xml" />
       </list>
     </option>
   </component>
